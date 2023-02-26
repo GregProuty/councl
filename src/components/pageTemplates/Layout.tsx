@@ -17,8 +17,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={`max-h-screen flex ${inter.variable} font-sans`}>
       <Head>
-        <title>Alkimiya</title>
-        <meta content="Alkimiya" name="description" />
+        <title>Council</title>
+        <meta content="Council" name="description" />
         <meta content="width=800, initial-scale=0.5" name="viewport" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
