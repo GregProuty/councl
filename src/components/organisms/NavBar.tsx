@@ -6,8 +6,7 @@ import { useCallback, useState } from "react"
 import { routes } from "@/consts/routes"
 
 import CloseMenu from "public/images/icons/close-menu.svg"
-import AlkimiyaLogo from "public/images/icons/logo-symbol.svg"
-import AlkimiyaLogoText from "public/images/icons/logo-text.svg"
+import CouncilLogo from "public/images/icons/council-logo.png"
 
 export const NavBar = () => {
   const { pathname } = useRouter()
@@ -18,35 +17,29 @@ export const NavBar = () => {
   )
   return (
     <div className={
-      `${isOpen ? "max-w-[240px] min-w-[240px]" : "max-w-[84px] min-w-[84px]"}
+      `${isOpen ? "max-w-[200px] min-w-[200px]" : "max-w-[84px] min-w-[84px]"}
       z-20`
     }>
       <div className={
-        `${isOpen ? "max-w-[240px] min-w-[240px]" : "max-w-[84px] min-w-[84px]"}
+        `${isOpen ? "max-w-[200px] min-w-[200px]" : "max-w-[84px] min-w-[84px]"}
         transition-width duration-200 ease-in-out overflow-hidden
-        h-screen bg-ak-blue-500 select-none`
+        h-screen bg-gray-200 select-none`
       }>
         <div
-          className="flex flex-col pt-8 h-screen max-w-[240px] min-w-[240px]"
+          className="flex flex-col pt-8 h-screen max-w-[200px] min-w-[200px]"
         >
           <Link
-            className="shrink-0 flex items-center space-x-1 px-7 h-11"
+            className="shrink-0 flex items-center space-x-1 px-5 h-11"
             href="/"
           >
             <Image
-              alt="Alkimiya Logo"
-              height={28}
-              src={AlkimiyaLogo}
-              width={28}
+              alt="Council Logo"
+              height={40}
+              src={CouncilLogo}
+              width={40}
             />
             {isOpen ? (
-              <Image
-                alt="Alkimiya Logo Text"
-                className="pt-1"
-                height={26}
-                src={AlkimiyaLogoText}
-                width={96}
-              />
+              <span className='text-2xl font-semibold'>Council</span>
             ) : (
               ""
             )}
