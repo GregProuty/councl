@@ -14,4 +14,15 @@ export const routes = [
     route: "/faucet",
     title: "Faucet",
   },
+  {
+    icon: <Image
+      alt="Proposal"
+      className="sidebar-icon"
+      height={16}
+      src={HelpIcon}
+      width={16}
+    />,
+    route: "/proposals",
+    title: "Proposals",
+  },
 ]

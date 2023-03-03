@@ -8,14 +8,14 @@
 }
 
 .btn {
-  @apply bg-ak-blue-500 py-3 px-4 inline-block
+  @apply bg-aragon-light-blue border border-aragon-dark-blue shadow py-2 px-4 inline-block
   rounded-tr-lg rounded-bl-lg text-base font-bold text-center hover:bg-ak-blue-700
   hover:text-white;
 }
 
-input[type="text"] {
-  @apply p-2 border-2 border-gray-300 text-base bg-white shadow rounded-xl;
-}
+/* input[type="text"] {
+  @apply p-2 border-2 border-gray-300 text-base bg-white shadow rounded;
+} */
 
 .shimmer {
   @apply relative overflow-hidden;

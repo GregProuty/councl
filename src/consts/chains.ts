@@ -14,3 +14,18 @@ export const localhostAnvil = {
     public: { http: ['http://localhost:8545'] },
   },
 } as const satisfies Chain
+
+export const ganache = {
+  id: 1337,
+  name: 'ganache',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ethereum',
+    symbol: 'ETH',
+  },
+  network: 'Localhost 7545',
+  rpcUrls: {
+    default: { http: ['http://127.0.0.1:7545'] },
+    public: { http: ['http://127.0.0.1:7545'] },
+  },
+} as const satisfies Chain

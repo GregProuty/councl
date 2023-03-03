@@ -26,12 +26,12 @@ const Modal = ({
                                 animate-fade-in fixed flex justify-center items-center z-30'>
         <Dialog.Content
           className={twMerge(
-            `bg-white rounded p-4 pt-4 w-96 h-96 overflow-y-auto modal-max-height`,
+            `bg-aragon-blue text-white rounded-md p-4 pt-4 w-96 h-96 overflow-y-auto modal-max-height`,
             className
           )}
         >
-          <div className='w-full flex justify-between border-b pb-2 mb-3 border-black'>
-            <h1 className='text-2xl'>{title}</h1>
+          <div className='w-full flex justify-between border-b pb-2 mb-3 border-white'>
+            <h1 className='text-2xl font-sans'>{title}</h1>
             <Dialog.Close>
               <Image alt='X' className='hover:opacity-50' src={XIcon} />
             </Dialog.Close>

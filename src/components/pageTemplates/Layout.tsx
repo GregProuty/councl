@@ -15,7 +15,7 @@ const inter = Inter({
 const Layout = ({ children }: { children: ReactNode }) => {
   useDynamicViewport()
   return (
-    <div className={`max-h-screen flex ${inter.variable} font-sans`}>
+    <div className={`max-h-screen flex ${inter.variable} font-sans bg-[#2A334A] text-white`}>
       <Head>
         <title>Council</title>
         <meta content="Council" name="description" />
@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <header
         className={
           `absolute w-full flex justify-end
-          p-3 border-b backdrop-blur z-10`
+          p-3 bg-[#38425C] z-20 border-b-2 border-aragon-dark-blue`
         }
       >
         <ConnectButton />
