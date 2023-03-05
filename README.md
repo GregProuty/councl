@@ -16,6 +16,7 @@
 
 [Buidl Presentation V4.pdf](https://github.com/GregProuty/councl/files/10892087/Buidl.Presentation.V4.pdf)
 
+https://www.youtube.com/watch?v=Z6TLkau7G6g
 
 <img width="1511" alt="Screen Shot 2023-03-05 at 7 17 21 AM" src="https://user-images.githubusercontent.com/13011196/222967959-fc0b5004-a302-4c87-8062-aad021e30581.png">
 <img width="1512" alt="Screen Shot 2023-03-05 at 7 16 00 AM" src="https://user-images.githubusercontent.com/13011196/222968111-de12cbf1-f0ce-4939-8667-9ccc9cc61957.png">
