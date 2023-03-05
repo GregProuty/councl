@@ -1,11 +1,13 @@
-import { HardhatUserConfig } from "hardhat/config";
-import { NetworkUserConfig } from "hardhat/types";
-import "@nomicfoundation/hardhat-toolbox";
-import '@openzeppelin/hardhat-upgrades';
+import type { HardhatUserConfig } from "hardhat/config"
+import type { NetworkUserConfig } from "hardhat/types"
 
-import { config as dotenvConfig } from "dotenv";
-import { resolve } from "path";
-dotenvConfig({ path: resolve(__dirname, "./.env") });
+import "@nomicfoundation/hardhat-toolbox"
+import '@openzeppelin/hardhat-upgrades'
+
+import { config as dotenvConfig } from "dotenv"
+
+import { resolve } from "path"
+dotenvConfig({ path: resolve(__dirname, "./.env") })
 
 const chainIds = {
   ganache: 1337,
@@ -15,20 +17,20 @@ const chainIds = {
   mainnet: 1,
   rinkeby: 4,
   ropsten: 3,
-};
+}
 
-const MNEMONIC = process.env.MNEMONIC || "";
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
-const INFURA_API_KEY = process.env.INFURA_API_KEY || "";
-const ALCHEMY_KEY = process.env.ALCHEMY_KEY || "";
-const PRIVATE_KEY1 = process.env.PRIVATE_KEY1 || "";
-const PRIVATE_KEY2 = process.env.PRIVATE_KEY2 || "";
-const PRIVATE_KEY3 = process.env.PRIVATE_KEY3 || "";
-const PRIVATE_KEY4 = process.env.PRIVATE_KEY4 || "";
-const PRIVATE_KEY5 = process.env.PRIVATE_KEY5 || "";
+const MNEMONIC = process.env.MNEMONIC || "write scrap camera leave dune title flower anxiety tissue script cheese glance"
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
+const INFURA_API_KEY = process.env.INFURA_API_KEY || ""
+const ALCHEMY_KEY = process.env.ALCHEMY_KEY || ""
+const PRIVATE_KEY1 = process.env.PRIVATE_KEY1 || "0xc5a39b38123da0c0937339b3fd8d3eebd079e2ab016e1ce6f26fca1ce3aef57d"
+const PRIVATE_KEY2 = process.env.PRIVATE_KEY2 || ""
+const PRIVATE_KEY3 = process.env.PRIVATE_KEY3 || ""
+const PRIVATE_KEY4 = process.env.PRIVATE_KEY4 || ""
+const PRIVATE_KEY5 = process.env.PRIVATE_KEY5 || ""
 
 function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + INFURA_API_KEY;
+  const url: string = "https://" + network + ".infura.io/v3/" + INFURA_API_KEY
   return {
     accounts: {
       count: 10,
@@ -38,7 +40,7 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
     },
     chainId: chainIds[network],
     url,
-  };
+  }
 }
 
 // You need to export an object to set up your config
@@ -46,21 +48,29 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY,
+  },
+  gasReporter: {
+    currency: "USD",
+    enabled: process.env.REPORT_GAS == "true" ?? false,
+    gasPrice: 100,
+  },
   networks: {
+    goerli: {
+      accounts: [PRIVATE_KEY1],
+      url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
+    },
     hardhat: {
       accounts: {
         mnemonic: MNEMONIC,
       },
       chainId: chainIds.hardhat,
     },
-    goerli: {
-      url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [PRIVATE_KEY1]
-    },
     hyperspace: {
+      accounts: [PRIVATE_KEY1],
       chainId: 3141,
       url: "https://api.hyperspace.node.glif.io/rpc/v1",
-      accounts: [PRIVATE_KEY1],
     },
     // mainnet: createTestnetConfig("mainnet"),
     // goerli: createTestnetConfig("goerli"),
@@ -71,28 +81,20 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.17",
         settings: {
           optimizer: {
             enabled: true,
-            runs: 200
-          }
-        }
+            runs: 200,
+          },
+        },
+        version: "0.8.17",
       },
     ],
-  },
-  etherscan: {
-    apiKey: ETHERSCAN_API_KEY,
-  },
-  gasReporter: {
-    currency: "USD",
-    gasPrice: 100,
-    enabled: process.env.REPORT_GAS == "true" ?? false,
   },
   typechain: {
     outDir: "typechain",
     target: "ethers-v5",
   },
-};
+}
 
-export default config;
+export default config
