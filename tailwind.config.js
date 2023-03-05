@@ -42,10 +42,14 @@ module.exports = {
         "ak-yellow-700": "#A89E3A",
         "ak-yellow-800": "#807728",
         "ak-yellow-900": "#575115",
+        "aragon-blue": "#38425C",
+        "aragon-dark-blue":"#293148",
+        "aragon-light-blue": "#43506E",
+        "snapshot-green": "#57B375",
       },
-      fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
-      },
+      // fontFamily: {
+      //   'sans': ['ui-sans-serif', 'system-ui'],
+      // },
       keyframes: {
         pulse: {
           "0%, 100%": {

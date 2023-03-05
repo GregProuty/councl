@@ -10,11 +10,7 @@ type ButtonProps = {
 export const Button = ({ label, onClick, className }: ButtonProps) => (
   <button
     className={twMerge(
-      `w-auto min-h-[48px] mt-3 py-2 px-3 
-        rounded-tr-lg rounded-bl-lg 
-        hover:bg-ak-blue-400 bg-ak-blue-500 text-black
-        transition-colors duration-300 ease-in-out
-        `,
+      `btn cursor-pointer bg-aragon-light-blue`,
       className
     )}
     onClick={onClick}

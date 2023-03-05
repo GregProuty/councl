@@ -18,15 +18,15 @@ export const NavBar = () => {
   return (
     <div className={
       `${isOpen ? "max-w-[200px] min-w-[200px]" : "max-w-[84px] min-w-[84px]"}
-      z-20`
+      z-10 `
     }>
       <div className={
         `${isOpen ? "max-w-[200px] min-w-[200px]" : "max-w-[84px] min-w-[84px]"}
         transition-width duration-200 ease-in-out overflow-hidden
-        h-screen bg-gray-200 select-none`
+        h-screen bg-aragon-blue select-none`
       }>
         <div
-          className="flex flex-col pt-8 h-screen max-w-[200px] min-w-[200px]"
+          className="flex flex-col h-screen max-w-[200px] min-w-[200px]"
         >
           <Link
             className="shrink-0 flex items-center space-x-1 px-5 h-11"
