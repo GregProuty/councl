@@ -1,0 +1,18 @@
+.idea
+node_modules
+
+#Hardhat files
+cache
+factories
+typechain
+
+yarn.lock
+
+.env
+
+typechain/*
+artifacts/build-info
+artifacts/**/*.dbg.json
+artifacts/hardhat
+yarn-error.log
+.openzeppelin
