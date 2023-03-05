@@ -11,7 +11,6 @@ import CouncilLogo from "public/images/icons/table_logo.svg"
 
 const Layout = ({ children }: { children: ReactNode }) => {
   useDynamicViewport()
-
   return (
     <div className={`max-h-screen flex font-sans bg-[#2A334A] text-white`}>
       <Head>
