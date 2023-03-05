@@ -1,13 +1,15 @@
 export const PROPOSAL_STATES = {
-  Unset: "Unset",
-  SecondRequired: 'SecondRequired',
-  InDiscussion: 'InDiscussion',
-  Pending: 'Pending',
   Active: 'Active',
   Canceled: "Canceled",
   Defeated: 'Defeated',
-  Succeeded: 'Succeeded',
-  Queued: 'Queued',
+  Executed: 'Executed',
   Expired: 'Expired',
-  Executed: 'Executed'
+  InDiscussion: 'InDiscussion',
+  Pending: 'Pending',
+  Queued: 'Queued',
+  SecondRequired: 'SecondRequired',
+  Succeeded: 'Succeeded',
+  Unset: "Unset",
 }
+
+export const SENTIMENTS = ["undefined", "support", "opposition", "neutral", "information", "question"]

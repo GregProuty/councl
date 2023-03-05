@@ -6,25 +6,19 @@ import { useSigner, useProvider } from 'wagmi'
 
 import AddButton from '@/components/atoms/AddButton'
 import Modal from '@/components/atoms/Modal'
-import Proposal from '@/components/molecules/proposal'
-import { getMethods, propose, getProposals, getState, getProposalById } from '@/helpers/contractMethods'
+import Proposal from '@/components/molecules/Proposal'
 
-// import ProposalForm from '@/components/organisms/ProposalForm'
-const NFT_STORAGE_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDBlMTg5ZTI0ODgyZGY2MTUxNjEyOWNkMGQyRkM0N0Q1Q2FmRjc1ZWIiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3NzQ1MzM4NzQyMCwibmFtZSI6ImNvdW5jaWwifQ.gImePgD-SW_oAWzyJIOAwfUL9JDOktA4cIrQBAI91MY'
+import { NFT_STORAGE_TOKEN } from '@/consts/secrets'
+import { getMethods, propose, getProposals, getState, getProposalById } from '@/helpers/contractMethods'
+import useRecursiveTimeout from '@/hooks/useRecursiveTimeout'
+
 const client = new NFTStorage({ token: NFT_STORAGE_TOKEN })
 
-// const dummyData = [
-//   {name: "give me money", text: "this is a proposal to give me money"},
-//   {name: "give me money", text: "this is a proposal to give me money"},
-//   {name: "give me money", text: "this is a proposal to give me money"},
-//   {name: "give me money", text: "this is a proposal to give me money"},
-// ]
 export const Proposals = () => {
-  // const chainId = useChainId()
   const provider = useProvider()
   const { data: signer } = useSigner()
 
-  // getMethods(provider)
+  getMethods(provider)
 
   const {
     register,
@@ -36,18 +30,21 @@ export const Proposals = () => {
   const [blobs, setBlobs] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
 
+  useRecursiveTimeout(async () => {
+    await fetchProposals()
+  }, 1000)
+
   const fetchProposals = async () => {
     const events = await getProposals(signer)
     if (!events) return
     let blobs = []
     for (let i = 0; i < events.length; i++) {
-      const cid = events[i].args[8]
+      const cid = events[i].args[9]
       const proposer = events[i].args[1]
       const proposalId = events[i].args.proposalId
       const state = await getState(proposalId, signer)
       const proposalData = await getProposalById(proposalId, signer)
 
-      console.log(events[i])
       try {
         await fetch(`https://${cid}.ipfs.nftstorage.link/`)
           .then((response) => response.blob())
@@ -99,7 +96,7 @@ export const Proposals = () => {
           <AddButton onClick={() => setModalOpen(!modalOpen)}/>
         </div>
       </div>
-      <button className='border p-2 rounded-md' onClick={() => fetchProposals()}>fetch</button>
+      {/* <button className='border p-2 rounded-md' onClick={() => fetchProposals()}>fetch</button> */}
 
       {/* <ProposalForm onSubmit={onSubmit}/> */}
       {!blobs.length && <p className='mt-8'>No proposals yet...</p>}
