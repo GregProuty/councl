@@ -111,7 +111,7 @@ export const Proposals = () => {
         />
       </div>
       )}
-      <Modal className={'w-[30vw] h-[32vw] flex flex-col'} open={modalOpen} title={'Create Proposal'} toggleOpen={() => setModalOpen(!modalOpen)}>
+      <Modal className={'w-[32vw] h-[42vw] flex flex-col'} open={modalOpen} title={'Create Proposal'} toggleOpen={() => setModalOpen(!modalOpen)}>
         <div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col'>
@@ -121,10 +121,22 @@ export const Proposals = () => {
                 type="text"
                 {...register("name", { required: true })}
               />
-              <p className='my-2'>Text:</p>
+              <p className='my-2'>Description:</p>
               <textarea
                 className="inline-block h-32 rounded text-black p-2"
                 {...register("text", { required: true })}
+              />
+              <p className='my-2'>Targets:</p>
+              <input
+                className="inline-block rounded text-black p-2 border-2 border-gray-300 text-base bg-white shadow"
+                type="text"
+                {...register("targets", { required: false })}
+              />
+              <p className='my-2'>Calldata:</p>
+              <input
+                className="inline-block rounded text-black p-2 border-2 border-gray-300 text-base bg-white shadow"
+                type="text"
+                {...register("calldata", { required: false })}
               />
               {errors.exampleRequired && (
                 <span className="text-red-500">This field is required</span>

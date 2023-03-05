@@ -30,8 +30,8 @@ export const getMethods = (provider) => {
 // CouncilToken deployed to: 0x792eEB84Fdea84aDEA1F3c99Ab7a2A6812deF0C3
 // CouncilContract deployed to: 0xFb4b350680684E9daFD89245D23679e0B57f5d36
 
-const CouncilToken = "0xc730CA9406D6A5719D0b849293C3dd267DCdeB24"
-const CouncilContract = "0x9700540407b6dc90e91B0A4f271bEd5F719b024a"
+const CouncilToken = "0x832eC5dB94E5C30d78CBF84583FBe8EBD37635c8"
+const CouncilContract = "0xDe30F6622eD091ADFC9ba610aB4418b1eE75dc59"
 
 export const propose = async (signer, cid) => {
   const councilContract =

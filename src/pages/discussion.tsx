@@ -92,14 +92,17 @@ export const Discussion = () => {
     setVoted(voted)
 
     const localStorageVoteStatus = localStorage.getItem('voteStatus')
-    const proposalId = router.query.proposalId
-    const voteStatus = JSON.parse(localStorageVoteStatus)[proposalId]
-
-    if (voteStatus === true) {
-      setVotePassed(true)
-    } else if (voteStatus === false) {
-      setVotePassed(false)
+    if (localStorageVoteStatus) {
+      const proposalId = router.query.proposalId
+      const voteStatus = JSON.parse(localStorageVoteStatus)[proposalId]
+  
+      if (voteStatus === true) {
+        setVotePassed(true)
+      } else if (voteStatus === false) {
+        setVotePassed(false)
+      }
     }
+
   }, 1000)
 
   const scrollToBottom = () => {
@@ -340,7 +343,7 @@ export const Discussion = () => {
               }</div>: <>{voted ? <div className='flex justify-center'>
                 <Button
                   className='w-40 mt-8'
-                  label={'Quorum'}
+                  label={'Tally'}
                   onClick={() => tallyVotes()}
                 />
               </div>

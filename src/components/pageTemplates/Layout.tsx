@@ -28,11 +28,11 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </Head>
       <header
         className={
-          `absolute w-full flex justify-between
-          p-3 bg-[#38425C] z-20 border-b-2 border-aragon-dark-blue`
+          `absolute w-full flex justify-between items-center
+          p-1 bg-[#38425C] z-20 border-b-2 border-aragon-dark-blue`
         }
       >
-        <div className='flex'>
+        <div className='flex h-full'>
           {/* <div className='bg-gray-400 rounded-full border border-black p-1 h-12 w-12'> */}
           <Image
             alt="Council Logo"
@@ -51,7 +51,11 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
         </div>
 
-        <ConnectButton />
+        <div className='mr-2'>
+
+          <ConnectButton />
+        </div>
+
       </header>
       <NavBar />
       <div className="flex-grow flex-shrink relative h-[100vh]">
