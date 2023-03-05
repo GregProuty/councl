@@ -12,6 +12,8 @@
 
 * `yarn lint` to check
 * `yarn format` to autofix as much as possible
+
+
 [Buidl Presentation V4.pdf](https://github.com/GregProuty/councl/files/10892087/Buidl.Presentation.V4.pdf)
 
 
