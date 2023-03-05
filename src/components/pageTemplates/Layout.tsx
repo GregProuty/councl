@@ -1,4 +1,3 @@
-import { Inter } from "@next/font/google"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import Head from "next/head"
 import Image from "next/image"
@@ -10,16 +9,11 @@ import type { ReactNode } from "react"
 
 import CouncilLogo from "public/images/icons/table_logo.svg"
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
-
 const Layout = ({ children }: { children: ReactNode }) => {
   useDynamicViewport()
 
   return (
-    <div className={`max-h-screen flex ${inter.variable} font-sans bg-[#2A334A] text-white`}>
+    <div className={`max-h-screen flex font-sans bg-[#2A334A] text-white`}>
       <Head>
         <title>Council</title>
         <meta content="Council" name="description" />
