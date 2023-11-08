@@ -13,7 +13,7 @@
 * `yarn lint` to check
 * `yarn format` to autofix as much as possible
 
-NEW DEPLOYMENT: https://councl.herokuapp.com/
+DEPLOYMENT: https://councl.herokuapp.com/
 
 [Buidl Presentation V4.pdf](https://github.com/GregProuty/councl/files/10892087/Buidl.Presentation.V4.pdf)
 
